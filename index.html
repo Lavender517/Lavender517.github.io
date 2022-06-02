@@ -122,10 +122,10 @@
 								<span class="image main"><img src="images/GNN1.PNG" alt="" /></span>
 								<p>In this section, we will initially introduce the definition of graphs and GNN implementation process, then discuss the GNN-based RS in details. Normally, a graph can be represented as <span>$\mathcal{G}= (\mathcal{V}, \mathcal{E})$</span>, where <span>$\mathcal{V}$</span> is the nodes set and <span>$\mathcal{E}$</span> means the edges set. Suppose <span>$v_i \in \mathcal{V}$</span> refers to a node, <span>$e_{ij} = (v_i, v_j) \in \mathcal{E}$</span> refers to an edge pointing from <span>$v_j$ to $v_i$</span>, and <span>$\mathcal{N}(v)=\{u \in \mathcal{V} \mid(v, u) \in \mathcal{E}\}$</span> refers to the neighborhood of node <span>$v$</span>. From a network architecture point of view, GNNs stack multiple propagation layers that be composed of aggregation and update operations. The propagation formulation is<sup>[19]</sup>:
 									\begin{equation} \label{GNN}
-									<!--\begin{split}-->
+									\begin{split}
 										&Aggregation: \quad \mathbf{n}_{v}^{(l)}=\operatorname{Aggregator}_{l}\left(\left\{\mathbf{h}_{u}^{l}, \forall u \in \mathcal{N}_{v}\right\}\right),\\
 										&Update: \quad \mathbf{h}_{v}^{(l+1)}=\operatorname{Updater}_{l}\left(\mathbf{h}_{v}^{(l)}, \mathbf{n}_{v}^{(l)}\right),
-									<!--\end{split}-->
+									\end{split}
 									\end{equation}
 								</p>
 								<p>where $\mathbf{h}_{u}^{l}$ denotes the representation of node $u$ at $l^{th}$ layer, ${Aggregator}_{l}$ and ${Updater}_{l}$ denotes the aggregation operation and update operation at $l^{th}$ layer respectively. The aggregation step mainly uses mean-pooling<sup>[20, 21]</sup> algorithm or attention mechanism<sup>[22]</sup> to implement the specific task. The update step integrates the representation of both the central node and aggregated neighbour node together into the new representation of the central node by the means of sum operation, nonlinear concatenation, GRU mechanism, etc<sup>[20, 21]</sup>. The above describes the basic principles and procedures of GNN implementation.</p>
@@ -154,7 +154,7 @@
 								<span class="image main"><img src="images/NLP1.PNG" alt="" /></span>							
 								<p>This figure describes two users and their news browsing history, while the arrows and boxes coloured in orange and blue represent their interesting news and words respectively. But there is a problem that users' preferences may differ from the content they click on, therefore a neural news recommendation model with personalized attention (NPA) was designed to give different informativeness for different users.</p>
 								<p>The specific architecture of the personalized attention module is presented in the following picture, while <span>$c_i$</span> denotes the representation of the $i^{th}$ word, <span>$\alpha_i$</span> denotes the attention weight of the <span>$i^{th}$</span> word, and <span>$r$</span> denotes the final contextual representation of the news title. In this way, the news encoder is applied to all news that has been or will be clicked by the users to acquire their mathematical representations as output. Therefore, the NPA is able to find and emphasize some keywords from news titles based on users' personal preferences.</p>
-								<span class="image main"><img src="images/NLP2.PNG" width="100" height="200"/ alt="" /></span>
+								<span class="image main"><img src="images/NLP2.PNG" width="200" height="100"/ alt="" /></span>
 								<p>Besides, opinion mining can be of great significance in contemporary RSs since the feedback from users composes a vital part of RS data collection requests. Hu <i>et al.</i><sup>[25]</sup> apply text summarization to construct the link between users and features of the product on which the customers have expressed their opinions, thus providing information for the CF recommendation algorithm. Specifically, there are three steps:
 									<ol>
 										<li>Mine the product features that have been rated by customers by opinion word extraction and text processing;</li>
@@ -216,8 +216,14 @@
 								<p>[8] Balraj Kumar and Neeraj Sharma. Approaches, issues and challenges in recommender systems: a systematic review. Indian journal of science and technology, 9(47):1–12, 2016.</p>
 								<p>[9] Thomas George and Srujana Merugu. A scalable collaborative filtering framework based on co-clustering. In Fifth IEEE International Conference on Data Mining (ICDM’05), pages 4–pp. IEEE, 2005.</p>
 								<p>[10] Shyong K Lam, Dan Frankowski, John Riedl, et al. Do you trust your recommendations? an exploration of security and privacy issues in recommender systems. In International conference on emerging trends in information and communication security, pages 14–29. Springer, 2006.</p>
-
-								
+								<p>[11] Ivan Cantador, Ignacio Fernandez-Tobias, Shlomo Berkovsky, and Paolo Cremonesi. Cross-domain recommender systems. In Recommender systems handbook, pages 919–959. Springer, 2015.</p>
+								<p>[12] Ivens Portugal, Paulo Alencar, and Donald Cowan. The use of machine learning algorithms in recomender systems: A systematic review. Expert Systems with Applications, 97:205–227, 2018.</p>
+								<p>[13] Arkadiusz Krysik. Amazon’s product recommendation system in 2021: How does the algorithm of the ecommerce giant work? [EB/OL]. https://recostream.com/blog/amazon-recommendation-system.</p>
+								<p>[14] Machine learning. [EB/OL]. https://research.netflix.com/research-area/machine-learning.</p>
+								<p>[15] Karan Aggarwal, Maad M Mijwil, Abdel-Hameed Al-Mistarehi, Safwan Alomari, Murat G¨ok, Anas M Zein Alaabdin, Safaa H Abdulrhman, et al. Has the future started? the current growth of artificial intelligence, machine learning, and deep learning. Iraqi Journal For Computer Science and Mathematics, 3(1):115–123, 2022.</p>[
+								<p>[16] Springboard India. How netflix’s recommendation engine works? [EB/OL]. https://medium.com/@springboard_ind/how-netflixs-recommendation-engine-works-bd1ee381bf81.</p>
+								<p>[17] Qipeng Guo, Xipeng Qiu, Xiangyang Xue, and Zheng Zhang. Syntax-guided text generation via graph neural network. Science China Information Sciences, 64(5):1–10, 2021.</p>
+								<p>[18] Jie Zhou, Ganqu Cui, Shengding Hu, Zhengyan Zhang, Cheng Yang, Zhiyuan Liu, Lifeng Wang, Changcheng Li, and Maosong Sun. Graph neural networks: A review of methods and applications. AI Open, 1:57–81, 2020.</p>
 								<p></p>
 								<p></p>
 								<p></p>
