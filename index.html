@@ -11,7 +11,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+		<script type="text/javascript" async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+		</script>
+		<!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script> -->
 		<!-- <script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
 			  tex2jax: {
@@ -20,24 +24,20 @@
 			  }
 			});
 		</script> -->
-		<!-- <script type="text/x-mathjax-config">
-			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-		</script> -->
 		<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
 		<!-- <script type="text/javascript" id="MathJax-script" async
 		  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
 	    </script> -->
-		<script>
+		<!-- <script>
 			MathJax = {
 			  tex: {
 				inlineMath: [['$', '$'], ['\\(', '\\)']],
-				displayMath: [['$$','$$'], ["\\[","\\]"]],
 				packages: ['base', 'newcommand', 'configMacros']
 			  },
 			  svg: {
 				fontCache: 'global'
 			  }
-			};
+			}; -->
 		</script>
 	</head>
 	<body class="is-preload">
@@ -132,8 +132,8 @@
 									$$
 									\begin{equation}
 									\begin{split}
-										&Aggregation: \quad \mathbf{n}_{v}^{(l)}={Aggregator}_{l}\left(\left\{\mathbf{h}_{u}^{l}, \forall u \in \mathcal{N}_{v}\right\}\right),\\\\
-										&Update: \quad \mathbf{h}_{v}^{(l+1)}={Updater}_{l}\left(\mathbf{h}_{v}^{(l)}, \mathbf{n}_{v}^{(l)}\right),								
+										&Aggregation: \quad \mathbf{n}_{v}^{(l)}=\operatorname{Aggregator}_{l}\left(\left\{\mathbf{h}_{u}^{l}, \forall u \in \mathcal{N}_{v}\right\}\right),\\\\
+										&Update: \quad \mathbf{h}_{v}^{(l+1)}=\operatorname{Updater}_{l}\left(\mathbf{h}_{v}^{(l)}, \mathbf{n}_{v}^{(l)}\right),								
 									\end{split}
 									\end{equation}
 									$$	
@@ -164,7 +164,7 @@
 								<span class="image main"><img src="images/NLP1.PNG" alt="" /></span>							
 								<p>This figure describes two users and their news browsing history, while the arrows and boxes coloured in orange and blue represent their interesting news and words respectively. But there is a problem that users' preferences may differ from the content they click on, therefore a neural news recommendation model with personalized attention (NPA) was designed to give different informativeness for different users.</p>
 								<p>The specific architecture of the personalized attention module is presented in the following picture, while <span>$c_i$</span> denotes the representation of the $i$-th word, <span>$\alpha_i$</span> denotes the attention weight of the <span>$i$</span>-th word, and <span>$r$</span> denotes the final contextual representation of the news title. In this way, the news encoder is applied to all news that has been or will be clicked by the users to acquire their mathematical representations as output. Therefore, the NPA is able to find and emphasize some keywords from news titles based on users' personal preferences.</p>
-								<span class="image main"><img src="images/NLP2.PNG" width=40% alt="" /></span>
+								<span class="image main"><img src="images/NLP2.PNG" width=20% height=20% alt="" /></span>
 								<!-- width="20" height="40"/  -->
 								<p>Besides, opinion mining can be of great significance in contemporary RSs since the feedback from users composes a vital part of RS data collection requests. Hu <i>et al.</i><sup>[25]</sup> apply text summarization to construct the link between users and features of the product on which the customers have expressed their opinions, thus providing information for the CF recommendation algorithm. Specifically, there are three steps:
 									<ol>
