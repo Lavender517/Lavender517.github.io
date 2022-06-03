@@ -121,11 +121,11 @@
 								<p>In recommender systems, user-item interactions can be naturally formulated as a bipartite graph (as shown in following figure), whose nodes indicate users or items and edges indicate the interaction relationships between users and items such as browsing and purchase<sup>[17]</sup>. Graph Neural Networks (GNNs) are powerful tools for graph mining and thus can be naturally introduced into RS. In RS, we desire to obtain better user/item representations to predict whether a user will be interested in a particular item, and this is equivalent to the link prediction task on a bipartite graph to predict whether two nodes have the potential to build an edge based on their similarities. To get better node representations, GNNs recursively aggregate the information from neighbour node and learn the subgraph structure around a certain node<sup>[18]</sup>, thus in this way, high-order connectivity is introduced into the node representation, instead of only 1-hop connectivity in Matrix Factorization (MF) model.</p>
 								<span class="image main"><img src="images/GNN1.PNG" alt="" /></span>
 								<p>In this section, we will initially introduce the definition of graphs and GNN implementation process, then discuss the GNN-based RS in details. Normally, a graph can be represented as <span>$\mathcal{G}= (\mathcal{V}, \mathcal{E})$</span>, where <span>$\mathcal{V}$</span> is the nodes set and <span>$\mathcal{E}$</span> means the edges set. Suppose <span>$v_i \in \mathcal{V}$</span> refers to a node, <span>$e_{ij} = (v_i, v_j) \in \mathcal{E}$</span> refers to an edge pointing from <span>$v_j$ to $v_i$</span>, and <span>$\mathcal{N}(v)=\{u \in \mathcal{V} \mid(v, u) \in \mathcal{E}\}$</span> refers to the neighborhood of node <span>$v$</span>. From a network architecture point of view, GNNs stack multiple propagation layers that be composed of aggregation and update operations. The propagation formulation is<sup>[19]</sup>:
-									<!-- \begin{equation} \label{GNN}
+									<!-- \begin{equation}
 									\begin{split} -->
 									$$
-										Aggregation: \quad \mathbf{n}_{v}^{(l)}={Aggregator}_{l}\left(\left\{\mathbf{h}_{u}^{l}, \forall u \in \mathcal{N}_{v}\right\}\right),\\
-										Update: \quad \mathbf{h}_{v}^{(l+1)}={Updater}_{l}\left(\mathbf{h}_{v}^{(l)}, \mathbf{n}_{v}^{(l)}\right),								
+										\alg Aggregation: \quad \mathbf{n}_{v}^{(l)}={Aggregator}_{l}\left(\left\{\mathbf{h}_{u}^{l}, \forall u \in \mathcal{N}_{v}\right\}\right),\\
+										\alg Update: \quad \mathbf{h}_{v}^{(l+1)}={Updater}_{l}\left(\mathbf{h}_{v}^{(l)}, \mathbf{n}_{v}^{(l)}\right),								
 									$$	
 									<!-- \end{split}
 									\end{equation} -->
@@ -156,7 +156,7 @@
 								<span class="image main"><img src="images/NLP1.PNG" alt="" /></span>							
 								<p>This figure describes two users and their news browsing history, while the arrows and boxes coloured in orange and blue represent their interesting news and words respectively. But there is a problem that users' preferences may differ from the content they click on, therefore a neural news recommendation model with personalized attention (NPA) was designed to give different informativeness for different users.</p>
 								<p>The specific architecture of the personalized attention module is presented in the following picture, while <span>$c_i$</span> denotes the representation of the $i^{th}$ word, <span>$\alpha_i$</span> denotes the attention weight of the <span>$i^{th}$</span> word, and <span>$r$</span> denotes the final contextual representation of the news title. In this way, the news encoder is applied to all news that has been or will be clicked by the users to acquire their mathematical representations as output. Therefore, the NPA is able to find and emphasize some keywords from news titles based on users' personal preferences.</p>
-								<span class="image main"><img src="images/NLP2.PNG" width="10" alt="" /></span>
+								<span class="image main"><img src="images/NLP2.PNG" width="5" alt="" /></span>
 								<!-- width="20" height="40"/  -->
 								<p>Besides, opinion mining can be of great significance in contemporary RSs since the feedback from users composes a vital part of RS data collection requests. Hu <i>et al.</i><sup>[25]</sup> apply text summarization to construct the link between users and features of the product on which the customers have expressed their opinions, thus providing information for the CF recommendation algorithm. Specifically, there are three steps:
 									<ol>
