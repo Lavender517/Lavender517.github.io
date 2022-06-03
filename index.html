@@ -124,8 +124,8 @@
 									<!-- \begin{equation}
 									\begin{split} -->
 									$$
-										\alg Aggregation: \quad \mathbf{n}_{v}^{(l)}={Aggregator}_{l}\left(\left\{\mathbf{h}_{u}^{l}, \forall u \in \mathcal{N}_{v}\right\}\right),\\
-										\alg Update: \quad \mathbf{h}_{v}^{(l+1)}={Updater}_{l}\left(\mathbf{h}_{v}^{(l)}, \mathbf{n}_{v}^{(l)}\right),								
+										&Aggregation: \quad \mathbf{n}_{v}^{(l)}={Aggregator}_{l}\left(\left\{\mathbf{h}_{u}^{l}, \forall u \in \mathcal{N}_{v}\right\}\right),\\
+										&Update: \quad \mathbf{h}_{v}^{(l+1)}={Updater}_{l}\left(\mathbf{h}_{v}^{(l)}, \mathbf{n}_{v}^{(l)}\right),								
 									$$	
 									<!-- \end{split}
 									\end{equation} -->
@@ -156,7 +156,7 @@
 								<span class="image main"><img src="images/NLP1.PNG" alt="" /></span>							
 								<p>This figure describes two users and their news browsing history, while the arrows and boxes coloured in orange and blue represent their interesting news and words respectively. But there is a problem that users' preferences may differ from the content they click on, therefore a neural news recommendation model with personalized attention (NPA) was designed to give different informativeness for different users.</p>
 								<p>The specific architecture of the personalized attention module is presented in the following picture, while <span>$c_i$</span> denotes the representation of the $i^{th}$ word, <span>$\alpha_i$</span> denotes the attention weight of the <span>$i^{th}$</span> word, and <span>$r$</span> denotes the final contextual representation of the news title. In this way, the news encoder is applied to all news that has been or will be clicked by the users to acquire their mathematical representations as output. Therefore, the NPA is able to find and emphasize some keywords from news titles based on users' personal preferences.</p>
-								<span class="image main"><img src="images/NLP2.PNG" width="5" alt="" /></span>
+								<span class="image main"><img src="images/NLP2.PNG" width="5" height="10"  alt="" /></span>
 								<!-- width="20" height="40"/  -->
 								<p>Besides, opinion mining can be of great significance in contemporary RSs since the feedback from users composes a vital part of RS data collection requests. Hu <i>et al.</i><sup>[25]</sup> apply text summarization to construct the link between users and features of the product on which the customers have expressed their opinions, thus providing information for the CF recommendation algorithm. Specifically, there are three steps:
 									<ol>
