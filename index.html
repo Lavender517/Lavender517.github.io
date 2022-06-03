@@ -121,12 +121,14 @@
 								<p>In recommender systems, user-item interactions can be naturally formulated as a bipartite graph (as shown in following figure), whose nodes indicate users or items and edges indicate the interaction relationships between users and items such as browsing and purchase<sup>[17]</sup>. Graph Neural Networks (GNNs) are powerful tools for graph mining and thus can be naturally introduced into RS. In RS, we desire to obtain better user/item representations to predict whether a user will be interested in a particular item, and this is equivalent to the link prediction task on a bipartite graph to predict whether two nodes have the potential to build an edge based on their similarities. To get better node representations, GNNs recursively aggregate the information from neighbour node and learn the subgraph structure around a certain node<sup>[18]</sup>, thus in this way, high-order connectivity is introduced into the node representation, instead of only 1-hop connectivity in Matrix Factorization (MF) model.</p>
 								<span class="image main"><img src="images/GNN1.PNG" alt="" /></span>
 								<p>In this section, we will initially introduce the definition of graphs and GNN implementation process, then discuss the GNN-based RS in details. Normally, a graph can be represented as <span>$\mathcal{G}= (\mathcal{V}, \mathcal{E})$</span>, where <span>$\mathcal{V}$</span> is the nodes set and <span>$\mathcal{E}$</span> means the edges set. Suppose <span>$v_i \in \mathcal{V}$</span> refers to a node, <span>$e_{ij} = (v_i, v_j) \in \mathcal{E}$</span> refers to an edge pointing from <span>$v_j$ to $v_i$</span>, and <span>$\mathcal{N}(v)=\{u \in \mathcal{V} \mid(v, u) \in \mathcal{E}\}$</span> refers to the neighborhood of node <span>$v$</span>. From a network architecture point of view, GNNs stack multiple propagation layers that be composed of aggregation and update operations. The propagation formulation is<sup>[19]</sup>:
-									\begin{equation} \label{GNN}
-									\begin{split}
+									<!-- \begin{equation} \label{GNN}
+									\begin{split} -->
+									$$
 										&Aggregation: \quad \mathbf{n}_{v}^{(l)}=\operatorname{Aggregator}_{l}\left(\left\{\mathbf{h}_{u}^{l}, \forall u \in \mathcal{N}_{v}\right\}\right),\\
 										&Update: \quad \mathbf{h}_{v}^{(l+1)}=\operatorname{Updater}_{l}\left(\mathbf{h}_{v}^{(l)}, \mathbf{n}_{v}^{(l)}\right),
-									\end{split}
-									\end{equation}
+									
+									$$	<!-- \end{split}
+									\end{equation} -->
 								</p>
 								<p>where $\mathbf{h}_{u}^{l}$ denotes the representation of node $u$ at $l^{th}$ layer, ${Aggregator}_{l}$ and ${Updater}_{l}$ denotes the aggregation operation and update operation at $l^{th}$ layer respectively. The aggregation step mainly uses mean-pooling<sup>[20, 21]</sup> algorithm or attention mechanism<sup>[22]</sup> to implement the specific task. The update step integrates the representation of both the central node and aggregated neighbour node together into the new representation of the central node by the means of sum operation, nonlinear concatenation, GRU mechanism, etc<sup>[20, 21]</sup>. The above describes the basic principles and procedures of GNN implementation.</p>
 								<p>According to the type of information involved in the project and the specific purpose of the task, existing GNN-based recommendation models can be classified as user-item collaborative filtering, sequential recommendation, social recommendation, knowledge graph-based recommendation, and other tasks<sup>[19]</sup>. Among these other tasks are POI recommendation and bundle recommendation. Why are the models classified in this way? Firstly, the structure of the graph in GNN depends a lot on the information type. For instance, a social network is naturally a homogeneous graph, while user-item interactions can be considered as a bipartite graph or as two homogeneous graphs, so they hold differences on this point. Furthermore, building an effective GNN model also relies on the information type, since it needs to complete the aggregation and update operations as well as consider network depth. Therefore, the knowledge graph-based recommendation can be classified as it has various types of entities and relationships. </p>
@@ -154,7 +156,7 @@
 								<span class="image main"><img src="images/NLP1.PNG" alt="" /></span>							
 								<p>This figure describes two users and their news browsing history, while the arrows and boxes coloured in orange and blue represent their interesting news and words respectively. But there is a problem that users' preferences may differ from the content they click on, therefore a neural news recommendation model with personalized attention (NPA) was designed to give different informativeness for different users.</p>
 								<p>The specific architecture of the personalized attention module is presented in the following picture, while <span>$c_i$</span> denotes the representation of the $i^{th}$ word, <span>$\alpha_i$</span> denotes the attention weight of the <span>$i^{th}$</span> word, and <span>$r$</span> denotes the final contextual representation of the news title. In this way, the news encoder is applied to all news that has been or will be clicked by the users to acquire their mathematical representations as output. Therefore, the NPA is able to find and emphasize some keywords from news titles based on users' personal preferences.</p>
-								<span class="image main"><img src="images/NLP2.PNG" width="200" height="100"/ alt="" /></span>
+								<span class="image main"><img src="images/NLP2.PNG" width="20" height="40"/ alt="" /></span>
 								<p>Besides, opinion mining can be of great significance in contemporary RSs since the feedback from users composes a vital part of RS data collection requests. Hu <i>et al.</i><sup>[25]</sup> apply text summarization to construct the link between users and features of the product on which the customers have expressed their opinions, thus providing information for the CF recommendation algorithm. Specifically, there are three steps:
 									<ol>
 										<li>Mine the product features that have been rated by customers by opinion word extraction and text processing;</li>
@@ -183,7 +185,7 @@
 
 						<!-- About -->
 							<article id="about">
-								<h2 class="major">3. Issues about ML Technologies <br />
+								<h2 class="major">3. Issues about ML<br />
 									in Recommender System</h2>
 								<p>Although ML technologies boost the performance of RS models by a large margin, concerns about abusing such powerful tools are still in discussion. </p>
 								<h3 class="major">Privacy</h3>
@@ -224,6 +226,48 @@
 								<p>[16] Springboard India. How netflix’s recommendation engine works? [EB/OL]. https://medium.com/@springboard_ind/how-netflixs-recommendation-engine-works-bd1ee381bf81.</p>
 								<p>[17] Qipeng Guo, Xipeng Qiu, Xiangyang Xue, and Zheng Zhang. Syntax-guided text generation via graph neural network. Science China Information Sciences, 64(5):1–10, 2021.</p>
 								<p>[18] Jie Zhou, Ganqu Cui, Shengding Hu, Zhengyan Zhang, Cheng Yang, Zhiyuan Liu, Lifeng Wang, Changcheng Li, and Maosong Sun. Graph neural networks: A review of methods and applications. AI Open, 1:57–81, 2020.</p>
+								<p>[19] Shiwen Wu, Fei Sun, Wentao Zhang, Xu Xie, and Bin Cui. Graph neural networks in recommender
+								systems: a survey. ACM Computing Surveys (CSUR), 2020.</p>
+								<p>[20] Will Hamilton, Zhitao Ying, and Jure Leskovec. Inductive representation learning on large graphs.
+								Advances in neural information processing systems, 30, 2017.</p>
+								<p>[21] Yujia Li, Daniel Tarlow, Marc Brockschmidt, and Richard Zemel. Gated graph sequence neural networks.
+								arXiv preprint arXiv:1511.05493, 2015.</p>
+								<p>[22] Petar Veliˇckovi´c, Guillem Cucurull, Arantxa Casanova, Adriana Romero, Pietro Lio, and Yoshua Bengio.
+								Graph attention networks. arXiv preprint arXiv:1710.10903, 2017.</p>
+								<p>[23] Weiwei Guo, Huiji Gao, Jun Shi, Bo Long, Liang Zhang, Bee-Chung Chen, and Deepak Agarwal. Deep
+								natural language processing for search and recommender systems. In Proceedings of the 25th ACM
+								SIGKDD International Conference on Knowledge Discovery & Data Mining, pages 3199–3200, 2019.</p>
+								<p>[24] Chuhan Wu, Fangzhao Wu, Mingxiao An, Jianqiang Huang, Yongfeng Huang, and Xing Xie. Npa:
+								Neural news recommendation with personalized attention. KDD ’19, page 2576–2584, New York, NY,
+								USA, 2019. Association for Computing Machinery.</p>
+								<p>[25] Minqing Hu and Bing Liu. Mining and summarizing customer reviews. In Proceedings of the tenth ACM
+								SIGKDD international conference on Knowledge discovery and data mining, pages 168–177, 2004.</p>
+								<p>[26] Song Han, Huizi Mao, and William J Dally. Deep compression: Compressing deep neural networks with
+								pruning, trained quantization and huffman coding. arXiv preprint arXiv:1510.00149, 2015.</p>
+								<p>[27] Baotian Hu, Zhengdong Lu, Hang Li, and Qingcai Chen. Convolutional neural network architectures
+								for matching natural language sentences. Advances in neural information processing systems, 27, 2014.</p>
+								<p>[28] Konstantina Christakopoulou, Alex Beutel, Rui Li, Sagar Jain, and Ed H Chi. Q&r: A two-stage
+								approach toward interactive recommendation. In Proceedings of the 24th ACM SIGKDD International
+								Conference on Knowledge Discovery & Data Mining, pages 139–148, 2018.</p>
+								<p>[29] Quoc-Tuan Truong, Aghiles Salah, and Hady Lauw. Multi-modal recommender systems: Hands-on
+								exploration. In Fifteenth ACM Conference on Recommender Systems, pages 834–837, 2021.</p>
+								<p>[30] Rui Sun, Xuezhi Cao, Yan Zhao, Junchen Wan, Kun Zhou, Fuzheng Zhang, Zhongyuan Wang, and
+								Kai Zheng. Multi-modal knowledge graphs for recommender systems. In Proceedings of the 29th ACM
+								International Conference on Information & Knowledge Management, pages 1405–1414, 2020.</p>
+								<p>[31] Aghiles Salah, Quoc-Tuan Truong, and Hady W Lauw. Cornac: A comparative framework for multimodal recommender systems. J. Mach. Learn. Res., 21:95–1, 2020.</p>
+								<p>[32] Yinwei Wei, Xiang Wang, Liqiang Nie, Xiangnan He, Richang Hong, and Tat-Seng Chua. Mmgcn: Multi-modal graph convolution network for personalized recommendation of micro-video. In Proceedings of the 27th ACM International Conference on Multimedia, pages 1437–1445, 2019.</p>
+								<p>[33] Lorenzo Minto, Moritz Haller, Benjamin Livshits, and Hamed Haddadi. Stronger privacy for federated collaborative filtering with implicit feedback. In Humberto Jes´us Corona Pamp´ın, Martha A. Larson, Martijn C. Willemsen, Joseph A. Konstan, Julian J. McAuley, Jean Garcia-Gathright, Bouke Huurnink, and Even Oldridge, editors, RecSys '21: Fifteenth ACM Conference on Recommender Systems, Amsterdam, The Netherlands, 27 September 2021 - 1 October 2021, pages 342–350. ACM, 2021.</p>
+							    <p>[34] Silvia Milano, Mariarosaria Taddeo, and Luciano Floridi. Recommender systems and their ethical challenges. Ai & Society, 35(4):957–967, 2020.</p>
+								<p>[35] Shahriar Badsha, Xun Yi, and Ibrahim Khalil. A practical privacy-preserving recommender system. Data Science and Engineering, 1(3):161–177, 2016.</p>
+								<p>[36] Jiawei Chen, Hande Dong, Xiang Wang, Fuli Feng, Meng Wang, and Xiangnan He. Bias and debias in recommender system: A survey and future directions. CoRR, abs/2010.03240, 2020.</p>
+								<p>[37] Yang Zhang, Fuli Feng, Xiangnan He, Tianxin Wei, Chonggang Song, Guohui Ling, and Yongdong
+									Zhang. Causal intervention for leveraging popularity bias in recommendation. In Proceedings of the
+									44th International ACM SIGIR Conference on Research and Development in Information Retrieval,
+									pages 11–20</p>
+								<p>[38] Jiawei Chen, Xiang Wang, Fuli Feng, and Xiangnan He. Bias issues and solutions in recommender system: Tutorial on the recsys 2021. In Fifteenth ACM Conference on Recommender Systems, pages 825–827, 2021.</p>
+								<p>[39] Sami Khenissi and Olfa Nasraoui. Modeling and counteracting exposure bias in recommender systems. arXiv preprint arXiv:2001.04832, 2020.</p>
+								<p>[40] Xu Chen, Yongfeng Zhang, and Zheng Qin. Dynamic explainable recommendation based on neural attentive models. In Proceedings of the AAAI Conference on Artificial Intelligence, volume 33, pages 53–60, 2019.</p>
+
 								<p></p>
 								<p></p>
 								<p></p>
